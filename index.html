@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vis.js Timeline Example</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+</head>
+<body>
+  <div id="timeline"></div>
+  <script>
+    // DOM element where the Timeline will be attached
+    var container = document.getElementById('timeline');
+    
+    // Create a DataSet (allows two way data-binding)
+    var items = new vis.DataSet([
+      {id: 1, content: 'Event 1', start: '2023-07-01'},
+      {id: 2, content: 'Event 2', start: '2023-07-02', end: '2023-07-03'},
+      {id: 3, content: 'Event 3', start: '2023-07-04'},
+      {id: 4, content: 'Event 4', start: '2023-07-05T12:00:00'},
+      {id: 5, content: 'Event 5', start: '2023-07-09'},
+      {id: 6, content: 'Event 6', start: '2023-07-11'}
+    ]);
+    
+    // Configuration for the Timeline
+    var options = {
+      editable: true, // Enables drag and drop
+      stack: false, // Items will be stacked on top of each other if false
+      start: '2023-07-01', // Start date for the timeline
+      end: '2023-07-15' // End date for the timeline
+    };
+    
+    // Create a Timeline
+    var timeline = new vis.Timeline(container, items, options);
+  </script>
+</body>
+</html>
